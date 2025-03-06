@@ -148,7 +148,7 @@ int io_init(int vendor, int product, const char* serial, unsigned int index, uns
 		fprintf(stderr, "write failed for 0x%x, error %d (%s)\n",buf[0], res, ftdi_get_error_string(&ftdi));
 	}
 
-	res = ftdi_usb_purge_buffers(&ftdi);
+	res = ftdi_tcioflush(&ftdi);
 	
 	if (res < 0)
 	{
